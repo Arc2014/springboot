@@ -20,4 +20,18 @@ public class UsuarioServiceImpl implements UsuarioService{
     public Usuario getUsuarioPorLogin(String login) {
         return usuarioRepository.findByLoginAllIgnoringCase(login);
     }
+
+    public Usuario salvar (Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+
+    public void deletar(String id) {
+        Long idLong = Long.parseLong(id);
+        usuarioRepository.delete(idLong);
+    }
+
+    public Usuario atualizar(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
+
 }

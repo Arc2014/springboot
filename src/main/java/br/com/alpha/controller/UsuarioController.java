@@ -26,15 +26,15 @@ public class UsuarioController {
 
     @RequestMapping(method=RequestMethod.POST)
     public Usuario salvar(@RequestBody Usuario usuario) {
-        return null;
+        return usuarioService.salvar(usuario);
     }
 
     @RequestMapping(method=RequestMethod.DELETE, value="{id}")
-    public void delete(@PathVariable String id) {
-
+    public void deletar(@PathVariable String id) {
+        usuarioService.deletar(id);
     }
     @RequestMapping(method=RequestMethod.PUT, value="{id}")
-    public Usuario update(@PathVariable String id, @RequestBody Usuario usuario) {
-        return null;
+    public Usuario atualizar(@PathVariable String id, @RequestBody Usuario usuario) {
+        return usuarioService.atualizar(usuario);
     }
 }
