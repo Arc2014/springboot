@@ -33,6 +33,7 @@ public class UsuarioController {
     public void deletar(@PathVariable String id) {
         usuarioService.deletar(id);
     }
+
     @RequestMapping(method=RequestMethod.PUT, value="{id}")
     public Usuario atualizar(@PathVariable String id, @RequestBody Usuario usuario) {
         return usuarioService.atualizar(usuario);
