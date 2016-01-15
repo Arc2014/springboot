@@ -1,0 +1,49 @@
+#DataSource
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost/alpha
+    username: root
+    password: affero
+  jpa:
+    open-in-view: true
+    show-sql: true
+    hibernate:
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+  server:
+    port: 8080
+    ssl:
+      key-store: keystore.p12
+      key-store-password: 91959869
+      keyStoreType: PKCS12
+      keyAlias: tomcat
+
+---
+
+spring:
+  profiles: production
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: ${JDBC_DATABASE_URL}
+    username: ${JDBC_DATABASE_USERNAME}
+    password: ${JDBC_DATABASE_PASSWORD}
+  jpa:
+    open-in-view: true
+    show-sql: false
+    hibernate:
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+  server:
+    port: ${PORT}
+    ssl:
+      key-store: keystore.p12
+      key-store-password: 91959869
+      keyStoreType: PKCS12
+      keyAlias: tomcat
+---
+
+# OAuth
+oauth:
+  client: xendurance
+  secret: y2hGU8Fp
+
+
